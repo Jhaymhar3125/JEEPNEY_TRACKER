@@ -269,7 +269,7 @@ fun JeepneyHomeScreen() {
                         color = JeepBlue
                     )
                     Text(text = "🟢 Origin",
-                        style = MaterialTheme.typography.labelLarge,
+                        style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.Bold,
                         color = Color.DarkGray
                     )
@@ -570,7 +570,7 @@ fun LocationDropdown(
             municipalities.forEach {municipality ->
                 DropdownMenuItem(
                     text = {
-                        Text("🚏 $municipality",fontWeight = FontWeight.Medium)},
+                        Text("🚏 $municipality",fontWeight = FontWeight.Medium, color = Color.Black)},
                     onClick = {onLocationSelected(municipality)
                         expanded = false})
             }
