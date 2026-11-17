@@ -367,14 +367,13 @@ fun JeepneyHomeScreen() {
                                 message = "Your origin and destination are the same."
 
                             } else {
-                                val distance = RouteData.directDistance(effectiveOrigin, destination)
+                                val finder: RouteFinder = DirectRouteFinder()
+                                val result = finder.findRoute(effectiveOrigin, destination)
 
-                                if (distance == null) {
+                                if (result == null) {
                                     message = "No jeepney terminal operates from $effectiveOrigin to $destination."
                                 } else {
-                                    routeResult = RouteResult(
-                                        path = listOf(effectiveOrigin, destination),
-                                        totalDistance = distance)
+                                    routeResult = result
                                     message = "Jeepney available from $effectiveOrigin to $destination."
                                 }
                             }
